@@ -1,0 +1,30 @@
+// Validacions
+
+function validarX() {
+    let ex = document.getElementById("ex");
+
+    if (!ex.checkValidity()) {
+        if (ex.validity.valueMissing)
+            error(ex, ".");
+        if (ex.validity.patternMismatch)
+            error(ex, ".");
+
+        return false;
+    }
+    return true;
+}
+
+function validar(e) {
+    esborrarError();
+
+    if (validarX() &&
+    validarY() &&
+    validarZ() &&
+    confirm("Confirma si vols enviar el formulari"))
+    {
+        return true;
+    } else {
+        e.preventDefault();
+        return false;
+    }
+}
